@@ -1,0 +1,166 @@
+*{
+    box-sizing: border-box;
+}
+
+
+
+.body{
+margin: 0;
+padding: 0;
+}
+
+.header{
+    position: absolute;
+    height: 50px;
+    width: 100%;
+    background-color: #ff4500;
+    z-index: 6;
+}
+
+.sidebar{
+    position: absolute;
+    width: 100%;
+    background-color: #ff0000;
+    height: 100vh;
+    z-index: 5;
+    padding-top: 50px;
+}
+
+.sidebar ul{
+    list-style: none;
+    padding: o;
+    margin: 0;
+}
+
+.sidebar ul li{
+    padding: 20px 10px;
+    border-bottom: 1px solid #fff;
+}
+
+.sidebar ul li a{
+    color: white;
+}
+
+.main-content{
+    padding-top: 50px;
+    background-attachment: fixed;
+}
+
+.container-fluid{
+    padding-top: 10px;
+}
+
+col-lg-3{
+    padding-top: 10px;
+}
+/*small devices (landscape phones,576px and up)*/
+@media screen and (min-width:576px){
+    .sidebar{
+        width: 150px;
+    }
+}
+
+.sidebar ul li{
+    text-align: center;
+}
+.sidebar ul li span:nth-child(2){
+    display: none;
+}
+.sidebar ul li i{
+    font-size: 30px;
+}
+
+.main-content{
+    margin-left: 50px;
+}
+
+/* extra small devices (potrait phones,less than 576px)*/
+@media  (max-width:575.98px) {
+    .sidebar {
+        width: 150px;
+    }
+}
+
+.sidebar ul li {
+    text-align: left;
+}
+
+.sidebar ul li span:nth-child(2) {
+    display: none;
+}
+
+.sidebar ul li i {
+    font-size: 20px;
+}
+
+.main-content{
+    margin-left: 50px;
+}
+
+
+/*nedium devices (tablets,768px and up)*/
+@media  (min-width:768px) {
+    .sidebar {
+        width: 150px;
+    }
+}
+
+.sidebar ul li {
+    text-align: center;
+}
+
+.sidebar ul li span:nt {
+    display: none;
+}
+
+.sidebar ul li i {
+    font-size: 30px;
+}
+
+
+.main-content{
+    margin-left: 100px;
+}
+/*larger devices (desktop,992pxpx and up)*/
+@media  (min-width:992px) {
+    .sidebar {
+        width: 200px;
+    }
+}
+
+.sidebar ul li {
+    text-align: left;
+}
+
+.sidebar ul li span:nth-child(2) {
+    display: inline;
+}
+
+.sidebar ul li i {
+    font-size: 20px;
+}
+
+.main-content{
+    margin-left: 200px;
+}
+/*extra large devices (large desktops,1200px and up)*/
+@media screen and (min-width:576px) {
+    .sidebar {
+        width: 200px;
+    }
+}
+
+.sidebar ul li {
+    text-align: left;
+}
+
+.sidebar ul li span:nth-child(2) {
+    display: inline;
+}
+
+.sidebar ul li i {
+    font-size: 20px;
+}
+.main-content{
+    margin-left: 200px;
+}
