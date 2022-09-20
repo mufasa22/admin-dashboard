@@ -1,0 +1,30 @@
+*{
+    box-sizing: border-box;
+}
+
+.container-fluid{
+    background-color: red;
+}
+
+
+.logo{
+    justify-content: center;
+    display: flex;
+}
+
+.here{
+    color: #2b17e8;
+}
+
+.submit{
+    background-color: #2b17e8;
+    color: white;
+}
+
+.cont2{
+    justify-content: center;
+    display: flex;
+}
+.card{
+    width: 500px;
+}
