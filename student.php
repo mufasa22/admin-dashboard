@@ -16,36 +16,17 @@
 <body>
   <!-- All our code. write here   -->
   <!----==================header section starts here=====================================-->
-  <div class="header">
-    <img src="./images/U-3WnLIg_400x400.jpg" alt="logo" height="50" width="50" class="rounded-circle" />
-
-    <!----==================header section ends here=====================================-->
+  <?php
+  include('includes/header.php')
+  ?>
+  <!----==================header section ends here=====================================-->
   </div>
 
   <div class="sidebar">
     <!----==================side bar information starts=====================================-->
-    <nav>
-      <ul>
-        <li>
-          <a href="index.php">
-            <span><i class="fa fa-group"></i></span> <span> Dashboard</span></a>
-        </li>
-        <li>
-          <a href="student.php">
-            <span><i class="fa fa-group"></i></span> <span> Students</span></a>
-        </li>
-        <li>
-          <a href="">
-            <span><i class="fa fa-folder-open"></i></span>
-            <span> Courses</span></a>
-        </li>
-        <li>
-          <a href="">
-            <span><i class="fa fa-graduation-cap"></i></span>
-            <span> Campus</span></a>
-        </li>
-      </ul>
-    </nav>
+    <?php
+    include('includes/sidebar.php')
+    ?>
 
     <!----==================side bar information ends=====================================-->
   </div>
