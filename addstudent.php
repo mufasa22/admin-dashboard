@@ -35,7 +35,7 @@
   </div>
 
 
-  <?php
+/m   <?php
   //db.connection
   require_once('dbconnection.php');
 
@@ -60,13 +60,19 @@ VALUES('$studentName','$regnumber','$phonenumber','$email' ,'$course')");
 
 
   ?>
+
+
   <!----==================main content starts here=====================================-->
   <div class="main-content">
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-12">
           <div class="card-header bg-dark text-white text-center pt-4">
-            <span>Enroll</span>
+            <span>Enroll</span> <br>
+            <?php
+echo $message;
+            ?>
+
           </div>
         </div>
         <div class="container py-5 lg-4">

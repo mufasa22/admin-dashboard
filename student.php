@@ -28,6 +28,14 @@
     include('includes/sidebar.php')
     ?>
 
+
+
+
+    <?php
+    require_once('dbconnection.php');
+    //fetch all the data
+    $fetchStudentsRecords = mysqli_query($conn, "SELECT *FROM enrollment");
+    ?>
     <!----==================side bar information ends=====================================-->
   </div>
   <!----==================main content starts here=====================================-->
@@ -43,30 +51,48 @@
                 ">
               <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Reg Number</th>
-                  <th>Phone Number</th>
-                  <th>Course</th>
+                  <th>no.</th>
+                  <th>name</th>
+                  <th>regnumber</th>
+                  <th>phonenumber</th>
+                  <th>email</th>
+                  <th>course</th>
+                  <th>enrolled on</th>
+                  <th>action</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>IAN NYONGESA</td>
-                  <td>00373</td>
-                  <td>011111222</td>
-                  <td>web design</td>
-                  <td>
-                    <a href="#" class="btn btn-primary btn-sm">
-                      <i class="fa fa-edit"></i>
-                    </a>
-                    <a href="#" class="btn btn-success btn-sm">
-                      <i class="fa fa-eye"></i>
-                    </a>
-                    <a href="#" class="btn btn-danger btn-sm">
-                      <i class="fa fa-trash"></i>
-                    </a>
-                  </td>
-                </tr>
+                <?php while ($row = mysqli_fetch_array($fetchStudentsRecords)) {
+
+                ?>
+                  <tr>
+                    <td>
+                      <?php echo $row["id"] ?></td>
+                    <td>
+                      <?php echo $row["name"] ?></td>
+                    <td>
+                      <?php echo $row["reg_number"] ?></td>
+                    <td>
+                      <?php echo $row["phone_number"] ?></td>
+                    <td>
+                      <?php echo $row["email"] ?></td>
+                    <td>
+                      <?php echo $row["course"] ?></td>
+                    <td>
+                      <?php echo $row["created_at"] ?></td>
+                    <td>
+                      <a href="#" class="btn btn-primary btn-sm">
+                        <i class="fa fa-edit"></i>
+                      </a>
+                      <a href="#" class="btn btn-success btn-sm">
+                        <i class="fa fa-eye"></i>
+                      </a>
+                      <a href="#" class="btn btn-danger btn-sm">
+                        <i class="fa fa-trash"></i>
+                      </a>
+                    </td>
+                  </tr>
+                <?php } ?>
               </tbody>
             </table>
           </div>
