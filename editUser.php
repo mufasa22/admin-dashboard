@@ -1,17 +1,46 @@
 <!-- ==========php file for displaying edit user details============ -->
 <?php
+$msg = '';
 // dbconnection
 require_once('dbconnection.php');
 
 $sql = mysqli_query($conn, "SELECT * FROM enrollment WHERE id='" . $_GET['id'] . "' ");
 while ($row = mysqli_fetch_array($sql)) {
+    $id = $row['id'];
     $name = $row['name'];
     $reg_number = $row['reg_number'];
     $phone_number = $row['phone_number'];
     $email = $row['email'];
     $course = $row['course'];
 }
+
+//update user data
+
+if (isset($_POST['updatebutton'])) {
+    //fetch form data
+    $updateName = $_POST['name'];
+    $updateReg_Number = $_POST['reg_number'];
+    $updatePhoneNumber = $_POST['phone_number'];
+    $updateEmail = $_POST['email'];
+    $updateCourse = $_POST['course'];
+
+    //sql querry
+    $sql = mysqli_query($conn, "UPDATE enrollment SET name='$updateName', reg_number='$updateReg_Number' ,phone_number='$updatePhoneNumber' ,email='$updateEmail' ,course='$updateCourse' WHERE id='" . $_GET['id'] . "' ");
+
+    //check if querry is true
+    if ($sql) {
+        $msg = "
+    <div class='alert alert-success' role='alert'><strong>success!</strong>user data updated successfully</div>";
+    } else {
+        $msg = "
+       <div class='alert alert-danger' role='alert'><strong>error!</strong>something went wrong please try again</div>";
+    }
+}
+
+
 ?>
+
+
 
 
 
@@ -54,7 +83,8 @@ while ($row = mysqli_fetch_array($sql)) {
             <div class="card-header bg-dark text-center text-white">Edit user account data
             </div>
             <div class="card-body">
-                <form action="editUser.php" method="post">
+                <span><?php echo $msg ?></span>
+                <form action="editUser.php?id=<?php echo $id ?>" method="post">
                     <div class="card-body">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Name</label>
@@ -83,8 +113,8 @@ while ($row = mysqli_fetch_array($sql)) {
                                 <option value="Data Analysis">Data Analysis</option>
                             </select>
                         </div>
-                        <button class="btn btn-secondary submit" name="submitbutton" type="submit" value="submit">
-                            Submit
+                        <button class="btn btn-secondary update" name="updatebutton" type="submit">
+                            update
                         </button>
                 </form>
             </div>

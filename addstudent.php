@@ -35,28 +35,61 @@
   </div>
 
 
-/m   <?php
+  <?php
+  $msg = '';
   //db.connection
   require_once('dbconnection.php');
-
+//check if form fields have values
   if (isset($_POST['submitbutton'])) {
+
+    //fetch form values
     $studentName = $_POST['name'];
     $regnumber = $_POST['reg_number'];
     $phonenumber = $_POST['phone_number'];
     $email = $_POST['email'];
     $course = $_POST['course'];
 
+    //check for reg nummber
+    $sqlRegNumber=mysqli_query($conn , "SELECT * FROM enrollment  WHERE reg_number='$regnumber'");
+$checkRegNumber=mysqli_num_rows($sqlRegNumber);
+
+    //check phone number
+    $sqlPhoneNumber = mysqli_query($conn, "SELECT * FROM enrollment  WHERE phone_number='$phonenumber'");
+    $checkPhoneNumber = mysqli_num_rows($sqlPhoneNumber);
+
+    //check for email
+    $sqlEmail= mysqli_query($conn, "SELECT * FROM enrollment  WHERE email='$email'");
+    $checkEmail = mysqli_num_rows($sqlEmail);
+
+
+if($checkRegNumber !=0){
+  $msg="reg number already in use";
+}
+
+elseif($checkPhone!=0){
+  $msg="phone already exists";
+}
+
+elseif($checkEmail!=0){
+  $msg="email already in use";
+}
+
+else{
+
+
+
     //insert into table enrollments
     $insertRecords = mysqli_query($conn, "INSERT INTO enrollment(name,reg_number,phone_number,email,course)
 VALUES('$studentName','$regnumber','$phonenumber','$email' ,'$course')");
 
     if ($insertRecords) {
-      echo "data submitted succesfully ";
+      $msg = "data submitted succesfully ";
     } else {
-      echo "error occured";
+      $msg = "error occured";
     }
   }
-
+  }
+  
 
 
   ?>
@@ -70,7 +103,7 @@ VALUES('$studentName','$regnumber','$phonenumber','$email' ,'$course')");
           <div class="card-header bg-dark text-white text-center pt-4">
             <span>Enroll</span> <br>
             <?php
-echo $message;
+            echo $msg;
             ?>
 
           </div>

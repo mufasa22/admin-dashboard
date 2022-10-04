@@ -8,17 +8,17 @@ $DATABASE= "zalegogram";
 //connection string
 $conn = mysqli_connect($SERVER,$USERNAME,$PASSWORD,$DATABASE);
 //check whether connection is successful
-if($conn)
-{
-    echo "Database connected successfuly";
-}
+// if($conn)
+// {
+//     echo "Database connected successfuly";
+// }
    
    
 
-else
-{
+// else
+// {
    
-    echo "Erorr Occured";
-}
+//     echo "Erorr Occured";
+// }
 
 ?>

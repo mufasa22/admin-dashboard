@@ -81,13 +81,13 @@
                     <td>
                       <?php echo $row["created_at"] ?></td>
                     <td>
-                      <a href="editUser.php" class="btn btn-primary btn-sm">
+                      <a href="editUser.php?id=<?php echo $row["id"] ?>" class="btn btn-primary btn-sm">
                         <i class="fa fa-edit"></i>
                       </a>
-                      <a href="#" class="btn btn-success btn-sm">
+                      <a href="userData.php" class="btn btn-success btn-sm">
                         <i class="fa fa-eye"></i>
                       </a>
-                      <a href="#" class="btn btn-danger btn-sm">
+                      <a href="deleteUser.php" class="btn btn-danger btn-sm">
                         <i class="fa fa-trash"></i>
                       </a>
                     </td>
